@@ -140,7 +140,7 @@
 
 @section('page_header')
     <h1 class="page-title">
-        <i class="voyager-settings"></i> Settings
+        <i class="voyager-settings"></i> Настройки
     </h1>
 @stop
 
@@ -150,8 +150,8 @@
         @include('voyager::alerts')
         @if(config('voyager.show_dev_tips'))
         <div class="alert alert-info">
-            <strong>How To Use:</strong>
-            <p>You can get the value of each setting anywhere on your site by calling <code>Voyager::setting('key')</code></p>
+            <strong>Как использовать:</strong>
+            <p>Вы можете получить значение вызвав где угодно на своем сайте<code>Voyager::setting('key')</code></p>
         </div>
         @endif
     </div>
@@ -245,7 +245,7 @@
                     @endif
                 @endforeach
             </div>
-            <button type="submit" class="btn btn-primary pull-right">Save Settings</button>
+            <button type="submit" class="btn btn-primary pull-right">Сохранить настройки</button>
         </form>
 
         <div style="clear:both"></div>
@@ -253,23 +253,23 @@
         <div class="panel" style="margin-top:10px;">
             <div class="panel-heading new-setting">
                 <hr>
-                <h3 class="panel-title"><i class="voyager-plus"></i> New Setting</h3>
+                <h3 class="panel-title"><i class="voyager-plus"></i> Новая настройка</h3>
             </div>
             <div class="panel-body">
                 <form action="{{ route('voyager.settings.store') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="col-md-4">
-                        <label for="display_name">Name</label>
+                        <label for="display_name">Имя</label>
                         <input type="text" class="form-control" name="display_name" placeholder="Setting name ex: Admin Title" required="required">
                     </div>
                     <div class="col-md-4">
-                        <label for="key">Key</label>
+                        <label for="key">Ключ</label>
                         <input type="text" class="form-control" name="key" placeholder="Setting key ex: admin_title" required="required">
                     </div>
                     <div class="col-md-4">
-                        <label for="asdf">Type</label>
+                        <label for="asdf">Тип</label>
                         <select name="type" class="form-control" required="required">
-                            <option value="">Choose type</option>
+                            <option value="">Выберите тип</option>
                             <option value="text">Text Box</option>
                             <option value="text_area">Text Area</option>
                             <option value="rich_text_box">Rich Textbox</option>
@@ -282,10 +282,10 @@
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <a id="toggle_options"><i class="voyager-double-down"></i> OPTIONS</a>
+                        <a id="toggle_options"><i class="voyager-double-down"></i> Настройки</a>
                         <div class="new-settings-options">
-                            <label for="options">Options
-                                <small>(optional, only applies to certain types like dropdown box or radio button)
+                            <label for="options">Настройки
+                                <small>(опционально, применяются только к типам вроде выпадающего списка или радио кнопок)
                                 </small>
                             </label>
                             <div id="options_editor" class="form-control min_height_200" data-language="json"></div>
@@ -308,7 +308,7 @@
                     </script>
                     <div style="clear:both"></div>
                     <button type="submit" class="btn btn-primary pull-right new-setting-btn">
-                        <i class="voyager-plus"></i> Add New Setting
+                        <i class="voyager-plus"></i> Добавить новую настройку
                     </button>
                     <div style="clear:both"></div>
                 </form>
@@ -324,16 +324,16 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title">
-                        <i class="voyager-trash"></i> Are you sure you want to delete the <span id="delete_setting_title"></span> Setting?
+                        <i class="voyager-trash"></i> Вы действительно хотите удалить эту <span id="delete_setting_title"></span> Настройку?
                     </h4>
                 </div>
                 <div class="modal-footer">
                     <form action="{{ route('voyager.settings.delete', ['id' => '__id']) }}" id="delete_form" method="POST">
                         {{ method_field("DELETE") }}
                         {{ csrf_field() }}
-                        <input type="submit" class="btn btn-danger pull-right delete-confirm" value="Yes, Delete This Setting">
+                        <input type="submit" class="btn btn-danger pull-right delete-confirm" value="Да, удалить эту настройку">
                     </form>
-                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Отмена</button>
                 </div>
             </div>
         </div>

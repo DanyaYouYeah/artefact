@@ -15,7 +15,7 @@
             <div class="col-md-12">
 
                 <div class="admin-section-title">
-                    <h3><i class="voyager-images"></i> Media</h3>
+                    <h3><i class="voyager-images"></i> Медиа</h3>
                 </div>
                 <div class="clear"></div>
 
@@ -24,23 +24,23 @@
                     <div id="toolbar">
                         <div class="btn-group offset-right">
                             <button type="button" class="btn btn-primary" id="upload"><i class="voyager-upload"></i>
-                                Upload
+                                Загрузить
                             </button>
                             <button type="button" class="btn btn-primary" id="new_folder"
                                     onclick="jQuery('#new_folder_modal').modal('show');"><i class="voyager-folder"></i>
-                                Add folder
+                                Добавить папку
                             </button>
                         </div>
                         <button type="button" class="btn btn-default" id="refresh"><i class="voyager-refresh"></i>
                         </button>
                         <div class="btn-group offset-right">
-                            <button type="button" class="btn btn-default" id="move"><i class="voyager-move"></i> Move
+                            <button type="button" class="btn btn-default" id="move"><i class="voyager-move"></i> Переместить
                             </button>
                             <button type="button" class="btn btn-default" id="rename"><i class="voyager-character"></i>
-                                Rename
+                                Переименовать
                             </button>
                             <button type="button" class="btn btn-default" id="delete"><i class="voyager-trash"></i>
-                                Delete
+                                Удалить
                             </button>
                         </div>
                     </div>
@@ -56,15 +56,15 @@
 
                         <div class="breadcrumb-container">
                             <ol class="breadcrumb filemanager">
-                                <li data-folder="/" data-index="0"><span class="arrow"></span><strong>Media
-                                        Library</strong></li>
+                                <li data-folder="/" data-index="0"><span class="arrow"></span><strong>Медиа 
+                                    библиотека</strong></li>
                                 <template v-for="folder in folders">
                                     <li data-folder="@{{folder}}" data-index="@{{ $index+1 }}"><span
                                                 class="arrow"></span>@{{ folder }}</li>
                                 </template>
                             </ol>
 
-                            <div class="toggle"><span>Close</span><i class="voyager-double-right"></i></div>
+                            <div class="toggle"><span>Свернуть</span><i class="voyager-double-right"></i></div>
                         </div>
                         <div class="flex">
 
@@ -116,11 +116,11 @@
                                     @else
                                         <img src="{{ Voyager::image($admin_loader_img) }}" alt="Voyager Loader">
                                     @endif
-                                    <p>LOADING YOUR MEDIA FILES</p>
+                                    <p>Загрузка файлов</p>
                                 </div>
 
                                 <div id="no_files">
-                                    <h3><i class="voyager-meh"></i> No files in this folder.</h3>
+                                    <h3><i class="voyager-meh"></i> Нет файлов в этой папке.</h3>
                                 </div>
 
                             </div>
@@ -140,14 +140,14 @@
                                                 <source src="@{{selected_file.path}}" type="video/mp4">
                                                 <source src="@{{selected_file.path}}" type="video/ogg">
                                                 <source src="@{{selected_file.path}}" type="video/webm">
-                                                Your browser does not support the video tag.
+                                                Ваш бразуер не поддерживает предпросмотр видео
                                             </video>
                                         </template>
                                         <template v-if="selected_file.type.includes('audio')">
                                             <audio controls style="width:100%; margin-top:5px;">
                                                 <source src="@{{selected_file.path}}" type="audio/ogg">
                                                 <source src="@{{selected_file.path}}" type="audio/mpeg">
-                                                Your browser does not support the audio element.
+                                                Ваш браузер не поддерживает прослушивание аудио
                                             </audio>
                                         </template>
                                         <template v-if="selected_file.type == 'folder'">
@@ -160,17 +160,17 @@
 
                                     </div>
                                     <div class="detail_info @{{selected_file.type}}">
-							<span><h4>Title:</h4>
+							<span><h4>Название:</h4>
 							<p>@{{selected_file.name}}</p></span>
-                                        <span><h4>Type:</h4>
+                                        <span><h4>Тип:</h4>
 							<p>@{{selected_file.type}}</p></span>
                                         <template v-if="selected_file.type != 'folder'">
-								<span><h4>Size:</h4>
+								<span><h4>Размер:</h4>
 								<p><span class="selected_file_count">@{{ selected_file.items }} item(s)</span><span
                                             class="selected_file_size">@{{selected_file.size}}</span></p></span>
-                                            <span><h4>Public URL:</h4>
-								<p><a href="@{{ selected_file.path }}" target="_blank">Click Here</a></p></span>
-                                            <span><h4>Last Modified:</h4>
+                                            <span><h4>Публичный URL:</h4>
+								<p><a href="@{{ selected_file.path }}" target="_blank">Нажмите сюда</a></p></span>
+                                            <span><h4>Изменен:</h4>
 								<p>@{{selected_file.last_modified}}</p></span>
                                         </template>
                                     </div>
@@ -182,7 +182,7 @@
 
                         <div class="nothingfound">
                             <div class="nofiles"></div>
-                            <span>No files here.</span>
+                            <span>Нет файлов здесь.</span>
                         </div>
 
                     </div>
@@ -195,11 +195,11 @@
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"
                                             aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title"><i class="voyager-move"></i> Move File/Folder</h4>
+                                    <h4 class="modal-title"><i class="voyager-move"></i>Переместить папку/файл</h4>
                                 </div>
 
                                 <div class="modal-body">
-                                    <h4>Destination Folder</h4>
+                                    <h4>Папка назначения</h4>
                                     <select id="move_folder_dropdown">
                                         <template v-if="folders.length">
                                             <option value="/../">../</option>
@@ -211,8 +211,8 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-warning" id="move_btn">Move</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                                    <button type="button" class="btn btn-warning" id="move_btn">Переместить</button>
                                 </div>
                             </div>
                         </div>
@@ -227,18 +227,18 @@
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"
                                             aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title"><i class="voyager-character"></i> Rename File/Folder</h4>
+                                    <h4 class="modal-title"><i class="voyager-character"></i> Переименовать папку/файл</h4>
                                 </div>
 
                                 <div class="modal-body">
-                                    <h4>New File/Folder Name</h4>
+                                    <h4>Новое имя файла/папки</h4>
                                     <input id="new_filename" class="form-control" type="text"
                                            value="@{{selected_file.name}}">
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-warning" id="rename_btn">Rename</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
+                                    <button type="button" class="btn btn-warning" id="rename_btn">Переименовать</button>
                                 </div>
                             </div>
                         </div>
@@ -255,17 +255,17 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal"
                                         aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"><i class="voyager-folder"></i> Add New Folder</h4>
+                                <h4 class="modal-title"><i class="voyager-folder"></i> Добавить новую папку</h4>
                             </div>
 
                             <div class="modal-body">
-                                <input name="new_folder_name" id="new_folder_name" placeholder="New Folder Name"
+                                <input name="new_folder_name" id="new_folder_name" placeholder="Название новой папки"
                                        class="form-control" value=""/>
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-info" id="new_folder_submit">Create New Folder
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                                <button type="button" class="btn btn-info" id="new_folder_submit">Создать новую папку
                                 </button>
                             </div>
                         </div>
@@ -281,18 +281,17 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal"
                                         aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"><i class="voyager-warning"></i> Are You Sure</h4>
+                                <h4 class="modal-title"><i class="voyager-warning"></i> Вы уверены?</h4>
                             </div>
 
                             <div class="modal-body">
-                                <h4>Are you sure you want to delete '<span class="confirm_delete_name"></span>'</h4>
-                                <h5 class="folder_warning"><i class="voyager-warning"></i> Deleting a folder will remove
-                                    all files and folders contained inside</h5>
+                                <h4>Вы действительно хотите удалить '<span class="confirm_delete_name"></span>'</h4>
+                                <h5 class="folder_warning"><i class="voyager-warning"></i> Удалив папку вы удалите все файлы внутри нее</h5>
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-danger" id="confirm_delete">Yes, Delete it!
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                                <button type="button" class="btn btn-danger" id="confirm_delete">Да, удалить!
                                 </button>
                             </div>
                         </div>
@@ -309,8 +308,7 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal"
                                         aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"><i class="voyager-warning"></i> Drag and drop files or click
-                                    below to upload</h4>
+                                <h4 class="modal-title"><i class="voyager-warning"></i> Перенесите файл в окно или нажмите для загрузки</h4>
                             </div>
 
                             <div class="modal-body">
@@ -318,7 +316,7 @@
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-success" data-dismiss="modal">All done</button>
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Завершено</button>
                             </div>
                         </div>
                     </div>

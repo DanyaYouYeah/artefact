@@ -5,7 +5,7 @@
         <i class="{{ $dataType->icon }}"></i> {{ $dataType->display_name_plural }}
         @if (Voyager::can('add_'.$dataType->name))
             <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success">
-                <i class="voyager-plus"></i> Add New
+                <i class="voyager-plus"></i> Добавить нового
             </a>
         @endif
     </h1>
@@ -20,12 +20,12 @@
                         <table id="dataTable" class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Created At</th>
-                                    <th>Avatar</th>
-                                    <th>Role</th>
-                                    <th class="actions">Actions</th>
+                                    <th>Имя</th>
+                                    <th>E-Mail</th>
+                                    <th>Cоздан</th>
+                                    <th>Аватар</th>
+                                    <th>Роль</th>
+                                    <th class="actions">Действия</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,17 +41,17 @@
                                     <td class="no-sort no-click">
                                         @if (Voyager::can('delete_'.$dataType->name))
                                             <div class="btn-sm btn-danger pull-right delete" data-id="{{ $data->id }}" id="delete-{{ $data->id }}">
-                                                <i class="voyager-trash"></i> Delete
+                                                <i class="voyager-trash"></i> Удалить
                                             </div>
                                         @endif
                                         @if (Voyager::can('edit_'.$dataType->name))
                                             <a href="{{ route('voyager.'.$dataType->slug.'.edit', $data->id) }}" class="btn-sm btn-primary pull-right edit">
-                                                <i class="voyager-edit"></i> Edit
+                                                <i class="voyager-edit"></i> Редактировать
                                             </a>
                                         @endif
                                         @if (Voyager::can('read_'.$dataType->name))
                                             <a href="{{ route('voyager.'.$dataType->slug.'.show', $data->id) }}" class="btn-sm btn-warning pull-right">
-                                                <i class="voyager-eye"></i> View
+                                                <i class="voyager-eye"></i> Посмотреть
                                             </a>
                                         @endif
                                     </td>
@@ -61,7 +61,7 @@
                         </table>
                         @if (isset($dataType->server_side) && $dataType->server_side)
                             <div class="pull-left">
-                                <div role="status" class="show-res" aria-live="polite">Showing {{ $dataTypeContent->firstItem() }} to {{ $dataTypeContent->lastItem() }} of {{ $dataTypeContent->total() }} entries</div>
+                                <div role="status" class="show-res" aria-live="polite">Показана {{ $dataTypeContent->firstItem() }} до {{ $dataTypeContent->lastItem() }} из {{ $dataTypeContent->total() }} записей</div>
                             </div>
                             <div class="pull-right">
                                 {{ $dataTypeContent->links() }}
@@ -79,17 +79,17 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title"><i class="voyager-trash"></i> Are you sure you want to delete
-                        this {{ $dataType->display_name_singular }}?</h4>
+                    <h4 class="modal-title"><i class="voyager-trash"></i> Вы действительно хотите удалить
+                        {{ $dataType->display_name_singular }}?</h4>
                 </div>
                 <div class="modal-footer">
                     <form action="{{ route('voyager.'.$dataType->slug.'.index') }}" id="delete_form" method="POST">
                         {{ method_field("DELETE") }}
                         {{ csrf_field() }}
                         <input type="submit" class="btn btn-danger pull-right delete-confirm"
-                                 value="Yes, Delete This {{ $dataType->display_name_singular }}">
+                                 value="Да, удалить {{ $dataType->display_name_singular }}">
                     </form>
-                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Отмена</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->

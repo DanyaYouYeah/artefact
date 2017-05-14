@@ -35,15 +35,16 @@
             <div class="clearfix">
                 <div class="col-sm-12 col-md-10 col-md-offset-2">
                     <div class="logo-title-container">
-                        <?php $admin_logo_img = Voyager::setting('admin_icon_image', ''); ?>
+                        <?php $admin_logo_img = Voyager::setting('autorization_image', ''); ?>
                         @if($admin_logo_img == '')
                         <img class="img-responsive pull-left logo hidden-xs animated fadeIn" src="{{ voyager_asset('images/logo-icon-light.png') }}" alt="Logo Icon">
                         @else
                         <img class="img-responsive pull-left logo hidden-xs animated fadeIn" src="{{ Voyager::image($admin_logo_img) }}" alt="Logo Icon">
                         @endif
                         <div class="copy animated fadeIn">
-                            <h1>{{ Voyager::setting('admin_title', 'Voyager') }}</h1>
-                            <p>{{ Voyager::setting('admin_description', 'Welcome to Voyager. The Missing Admin for Laravel') }}</p>
+                        <?php $autorization_caption = Voyager::setting('autorization_caption', ''); ?>
+                        <img class="hidden-xs animated fadeIn" src="{{ Voyager::image($autorization_caption) }}">
+                        <p style="padding-top: 1%">{{ Voyager::setting('admin_description', 'Добро пожаловать') }}</p>
                         </div>
                     </div> <!-- .logo-title-container -->
                 </div>
@@ -54,7 +55,7 @@
 
             <div class="login-container animated fadeInRightBig">
 
-                <h2>Sign In Below:</h2>
+                <h2>Авторизация:</h2>
 
                 <form action="{{ route('voyager.login') }}" method="POST">
                 {{ csrf_field() }}
@@ -62,19 +63,19 @@
                   <input type="text" name="email" value="{{ old('email') }}" required>
                   <span class="highlight"></span>
                   <span class="bar"></span>
-                  <label><i class="glyphicon glyphicon-user"></i><span class="span-input"> E-mail</span></label>
+                  <label><i class="glyphicon glyphicon-user"></i><span class="span-input">Ваш E-mail</span></label>
                 </div>
 
                 <div class="group">      
                   <input type="password" name="password" required>
                   <span class="highlight"></span>
                   <span class="bar"></span>
-                  <label><i class="glyphicon glyphicon-lock"></i><span class="span-input"> Password</span></label>
+                  <label><i class="glyphicon glyphicon-lock"></i><span class="span-input"> Пароль</span></label>
                 </div>
 
                 <button type="submit" class="btn btn-block login-button">
-                    <span class="signingin hidden"><span class="glyphicon glyphicon-refresh"></span> Loggin in...</span>
-                    <span class="signin">Login</span>
+                    <span class="signingin hidden"><span class="glyphicon glyphicon-refresh"></span> Авторизация...</span>
+                    <span class="signin">Войти</span>
                 </button>
                
               </form>

@@ -8,10 +8,10 @@
                         @if($admin_logo_img == '')
                             <img src="{{ voyager_asset('images/logo-icon-light.png') }}" alt="Logo Icon">
                         @else
-                            <img src="{{ Voyager::image($admin_logo_img) }}" alt="Logo Icon">
+                            <img src="{{ Voyager::image($admin_logo_img) }}" alt="Logo Icon"> 
                         @endif
                     </div>
-                    <div class="title">{{Voyager::setting('admin_title', 'VOYAGER')}}</div>
+                    <div class="title">{{Voyager::setting('admin_title', 'ARTEFACT')}}</div>
                 </a>
             </div><!-- .navbar-header -->
 

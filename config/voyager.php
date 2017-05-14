@@ -109,18 +109,18 @@ return [
         /*
          * Set whether or not the multilingual is supported by the BREAD input.
          */
-        'enabled' => false,
+        'enabled' => true,
 
         /*
          * Select default language
          */
-        'default' => 'en',
+        'default' => 'ru',
 
         /*
          * Select languages that are supported.
          */
         'locales' => [
-            'en',
+            'ru',
             //'pt',
         ],
     ],
@@ -136,21 +136,21 @@ return [
 
     'widgets' => [
         [
-            'name'  => 'User',
+            'name'  => 'Пользователи',
             'icon'  => 'voyager-group',
             'model' => TCG\Voyager\Models\User::class,
             'url'   => 'admin/users',
             'image' => '/images/widget-backgrounds/02.png',
         ],
         [
-            'name'  => 'Post',
+            'name'  => 'Посты',
             'icon'  => 'voyager-news',
             'model' => TCG\Voyager\Models\Post::class,
             'url'   => 'admin/posts',
             'image' => '/images/widget-backgrounds/03.png',
         ],
         [
-            'name'  => 'Page',
+            'name'  => 'Страницы',
             'icon'  => 'voyager-file-text',
             'model' => TCG\Voyager\Models\Page::class,
             'url'   => 'admin/pages',
@@ -170,17 +170,17 @@ return [
     'dashboard' => [
         // Add custom list items to navbar's dropdown
         'navbar_items' => [
-            'Profile' => [
+            'Профиль' => [
                 'route'         => 'voyager.profile',
                 'classes'       => 'class-full-of-rum',
                 'icon_class'    => 'voyager-person',
             ],
-            'Home' => [
+            'На главную' => [
                 'route'         => '/',
                 'icon_class'    => 'voyager-home',
                 'target_blank'  => true,
             ],
-            'Logout' => [
+            'Выйти' => [
                 'route'      => 'voyager.logout',
                 'icon_class' => 'voyager-power',
             ],
@@ -214,7 +214,7 @@ return [
         'gradient_b' => '#ffffff',
     ],
 
-    'primary_color' => '#22A7F0',
+    'primary_color' => '#2C2C2C',
 
     'show_dev_tips' => true, // Show development tip "How To Use:" in Menu and Settings
 
