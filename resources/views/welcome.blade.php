@@ -105,7 +105,7 @@
             <div class="button">
                 <a class="button a" href="#">ПЕРЕЙТИ В КАТАЛОГ</a>
             </div>
-            
+    
             </div>
         </div>
         <script>
